@@ -4,7 +4,7 @@ This site includes the labs for the Automating the Cloud class.
 
 
 ## Lab VMs  
-[//]: # (https://docs.google.com/spreadsheets/d/1psMAAPxgHq9wpZVftao9UT8MIWR1xljq-WB8aOiVBRI/edit?usp=sharing)  
+[//]: # (https://docs.google.com/spreadsheets/d/1psMAAPxgHq9wpZVftao9UT8MIWR1xljq-WB8aOiVBRI/edit?usp=sharing)
 Instructor will provide lab VM sheet.
 
 [Lab Setup](labs/setup/)  
@@ -12,6 +12,7 @@ Instructor will provide lab VM sheet.
 ## Labs
 
 ### Day 1
-Lab 1: [User Management](labs/user-scripts)  
+Lab 1: [User Management](labs/user-scripts) 
 
+Lab 2: [Guessing Game](labs/guessing_game)  
 
