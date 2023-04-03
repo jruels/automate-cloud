@@ -11,13 +11,13 @@ Objectives:
   * If the number provided is equal to the generated number, output "You win!"
   * If the number provided is smaller than the generated number, output "You're thinking too small."
   * If the number provided is larger than the generated number, output "You're thinking too large."
-  * No matter what numbers they guess, end 
+  * No matter what numbers they guess, end after five attempts
 
 
 
 ## Bonus
 
-* Extend the scripts to be idempotent. They should check if the user exists and exit with a message stating this.
+* Update the game to give the user the generated number at the end of their five attempts.
 
 
 
