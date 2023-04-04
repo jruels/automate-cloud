@@ -1,6 +1,6 @@
-# Lambda - Start/Stop EC2 Instances
+# Lambda - Stop EC2 Instances
 
-In this tutorial, we will create Python scripts to start and stop EC2 instances, then apply those scripts to Lambda functions. We can then use Amazon EventBridge to schedule the functions so that our EC2 instances start and stop depending on the hours that developers should be working.
+In this tutorial, we will create a Python script to stop EC2 instances, then apply that script to a Lambda function. 
 
 
 
@@ -154,3 +154,10 @@ We are now ready to test our function. When we run it, the function should stop 
 5. Click **Test**.
 
 6. Navigate to **EC2** > **Instances**, and observe that your instances with the `Environment: Dev` tag are stopping.
+
+
+
+## Cleanup
+
+* Delete the EC2 instances
+* Delete the Lambda function

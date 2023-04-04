@@ -160,7 +160,8 @@ Log into the [AWS Console](https://console.aws.amazon.com/) in a browser. Once y
 
 ## Cleanup
 
-Delete the EC2 instance
+* Delete the EC2 instance
+* Delete the Lambda function
 
 
 
