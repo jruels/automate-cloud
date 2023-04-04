@@ -16,3 +16,11 @@ Lab 1: [User Management](labs/user-scripts)
 
 Lab 2: [Guessing Game](labs/guessing_game)  
 
+
+
+### Day 2
+
+Lab 3: [Deploy an EC2 instance with Lambda](labs/lambda_ec2)  
+
+Lab 4: [Lambda Instance State](labs/lambda_start_stop)  
+
