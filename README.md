@@ -11,7 +11,7 @@ Instructor will provide lab VM sheet.
 
 ## Labs
 ### Day 1
-Lab 1: [User Management](labs/user-scripts) 
+Lab 1: [User Management](labs/user-scripts)    
 Lab 2: [Guessing Game](labs/guessing_game)  
 
 
