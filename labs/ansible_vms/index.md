@@ -275,16 +275,6 @@ node2 ansible_host=<IP of node2>
 
 
 
-## Get Logged In
-
-Log in to the control server as `ec2-user` and sudo to the `ansible` user.
-
-```
- sudo su - ansible
-```
-
-
-
 ### Prerequisites
 
 Create and enter a working directory
