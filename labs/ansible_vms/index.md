@@ -264,23 +264,12 @@ Then we’ve got to design an Ansible playbook that will execute the following t
 
 
 
-## Create Ansible inventory
-
-Next, we’ll create a simple Ansible inventory containing our nodes
-
-```
-node1 ansible_host=<IP of node1>
-node2 ansible_host=<IP of node2>
-```
-
-
-
 ### Prerequisites
 
 Create and enter a working directory
 
 ```
- mkdir /home/ubuntu/lab-playbook-fun && cd /home/ubuntu/lab-playbook-fun
+ mkdir lab-playbook-fun && cd lab-playbook-fun
 ```
 
 ## Create an inventory
@@ -295,7 +284,7 @@ node2 ansible_host=<IP of node2>
 
 ## Create a Playbook
 
-Using Vim, create`/home/ubuntu/lab-playbook-fun/web.yml` file with these contents:
+Using Vim, create`lab-playbook-fun/web.yml` file with these contents:
 
 ```
 ---
