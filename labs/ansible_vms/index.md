@@ -314,7 +314,7 @@ Using Vim, create`lab-playbook-fun/web.yml` file with these contents:
 ## Execute the playbook
 
 ```
-ansible-playbook -i inventory web.yml 
+ansible-playbook --private-key ~/.ssh/id_rsa -u ubuntu -i inventory web.yml 
 ```
 
 This playbook will fail with the following error:
