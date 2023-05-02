@@ -119,14 +119,14 @@ Add two variable blocks to `variables.tf`
 - variable name: `public_key_path`
 - description: `Path to the public SSH key.`
 - type: string 
-- default: `/home/ec2-user/.ssh/id_rsa.pub`
+- default: `/home/<username>/.ssh/id_rsa.pub`
 
 
 
 - variable name: `private_key_path`
 - description: `Path to the private SSH key.`
 - type: string 
-- default: `/home/ec2-user/.ssh/id_rsa`
+- default: `/home/<username./.ssh/id_rsa`
 
 
 
@@ -186,7 +186,7 @@ Add the following to the `main.tf` file
 * Update the `aws_instance` resource
 
   * `depends_on` = `[aws_security_group.sg-ec2]`
-  * `vpc_security_group_ids` = `aws_security_group.sg-ec2.id`
+  * `vpc_security_group_ids` = `[aws_security_group.sg-ec2.id]`
   * `key_name` = `aws_key_pair.keypair.key_name`
 
   
@@ -343,5 +343,5 @@ Rerun the playbook and confirm it is succesful.
 
 ## Conclusion
 
-This new setup is everything we needed. The Ansible playbook installs `httpd` and `unzip`, starts and enables it, and creates a simple website, all on its own web node. That’s what we needed. Congratulations!
+This new setup is everything we need. The Ansible playbook installs `httpd` and `unzip`, starts and enables it, and creates a simple website, on its own web node. That’s what we needed. Congratulations!
 
