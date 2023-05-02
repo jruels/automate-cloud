@@ -29,3 +29,4 @@ Lab 9: [Terraform Modules](labs/tf-write-module)
 
 ### Day 4
 Lab 10: [Terraform and Ansible](labs/ansible_vms)  
+Lab 10: [Integrate Ansible and Terraform](labs/tf_ansible_vms)  
