@@ -12,8 +12,8 @@ Finally, you'll realize that you'll have some reasonable turnover, so you'll app
 Objectives: 
 
 * The following user accounts must exist on the system
-  * Mary, Jim, Diego, Jason, Sherry
-* Each account must have a password of 'bash'
+  * `mary`,` jim`, `diego`, `jason`, `sherry`
+* Each account must have a password of `bash`
 * Each account must be a member of the `sudo` group
 * Add a user by hand — and realize how much work it is!
 * Create a script `create_users.sh` to add users in a batch from an input file.
