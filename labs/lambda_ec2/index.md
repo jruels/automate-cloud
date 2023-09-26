@@ -6,9 +6,11 @@ In this AWS hands-on lab, we will write a Lambda function that will create an EC
 
 ## Log into the AWS Console
 
-Log into the [AWS Console](https://console.aws.amazon.com/) in a browser. Once you have logged in, on the top right side, select the `us-west-2` region.
+Log into the [AWS Console](https://d-916729713a.awsapps.com/start/) in a browser using the credentials from the spreadsheet.
 
+Once you have logged in, select **AWS Account (1)** -> **Account AFT** -> **Management console**
 
+In the console, on the top right side, select the `us-west-2` region.
 
 ## Create EC2 Key Pair
 
