@@ -4,12 +4,12 @@
 In this lab you will log into the AWS Console and start a CloudShell session. We will be using this for all future labs. 
 
 ### Log into the AWS Cloud Console
-To log into the console go to [https://console.aws.amazon.com/](https://console.aws.amazon.com/) in a browser. Once you have logged in, on the top right side, select the `US-East-2` region. 
+To log into the console. use the steps provided by the instructor. Once you have logged in, on the top right side, select the `US-West-2` region. 
 
 ![region](images/region.png)
 
 ### Start the CloudShell 
-After selecting the `US-East-2` region, use the search bar at the top of the page to search for `CloudShell`. Click on the result shown in the screenshot.
+After selecting the `US-West-2` region, use the search bar at the top of the page to search for `CloudShell`. Click on the result shown in the screenshot.
 ![cloudshell](images/cloudshell.png)
 
 ## Cleanup

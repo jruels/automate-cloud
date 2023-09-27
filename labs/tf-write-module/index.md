@@ -1,7 +1,7 @@
 # Terraform Lab 5
 
 ## Overview
-In this lab, you will create a module to manage AWS S3 buckets used to host static websites.
+In this lab, you will create a module to manage AWS S3 buckets to host static websites.
 
 ## Module structure
 
@@ -41,21 +41,15 @@ cd $_
 ```
 Clone the GitHub repository.
 ```sh
-git clone https://github.com/jruels/learn-terraform-modules.git
+git clone https://github.com/jruels/learn-terraform-modules-create.git
 ```
 
 Enter the directory.
 ```sh
-cd learn-terraform-modules
+cd learn-terraform-modules-create
 ```
 
-Check out the `ec2-instances` tag into a local branch.
-
-```sh
-git checkout tags/ec2-instances -b ec2-instances
-```
-
-Ensure that Terraform has downloaded all the necessary providers and modules by initializing it.
+Ensure that Terraform has downloaded all the necessary providers and modules by running `terraform init`.
 
 In this lab, you will create a local submodule within your existing configuration that uses the s3 bucket resource from the AWS provider.
 
@@ -87,32 +81,79 @@ Add an S3 bucket resource to `main.tf` inside the `modules/aws-s3-static-website
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.bucket_name
 
-  acl    = "public-read"
-  policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::${var.bucket_name}/*"
-            ]
-        }
-    ]
+  tags = var.tags
 }
-EOF
 
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
+resource "aws_s3_bucket_cors_configuration" "s3_bucket" {
+  bucket = aws_s3_bucket.s3_bucket.id  
+
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["GET", "HEAD"]
+    allowed_origins = ["*"]
+    expose_headers  = ["ETag"]
+    max_age_seconds = 3000
+  }  
+}
+
+resource "aws_s3_bucket_website_configuration" "s3_bucket" {
+  bucket = aws_s3_bucket.s3_bucket.id
+
+  index_document {
+    suffix = "index.html"
   }
 
-  tags = var.tags
+  error_document {
+    key = "error.html"
+  }
+}
+
+resource "aws_s3_bucket_acl" "s3_bucket" {
+  bucket = aws_s3_bucket.s3_bucket.id
+  acl = "public-read"
+  depends_on = [aws_s3_bucket_ownership_controls.s3_bucket_acl_ownership]
+}
+
+resource "aws_s3_bucket_ownership_controls" "s3_bucket_acl_ownership" {
+  bucket = aws_s3_bucket.s3_bucket.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+  depends_on = [aws_s3_bucket_public_access_block.example]
+}
+
+resource "aws_iam_user" "s3_bucket" {
+  name = "s3-bucket"
+}
+
+resource "aws_s3_bucket_public_access_block" "example" {
+  bucket = aws_s3_bucket.s3_bucket.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_policy" "s3_bucket" {
+  bucket = aws_s3_bucket.s3_bucket.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "PublicReadGetObject"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource = [
+          aws_s3_bucket.s3_bucket.arn,
+          "${aws_s3_bucket.s3_bucket.arn}/*",
+        ]
+      },
+    ]
+  })
+  depends_on = [aws_s3_bucket_public_access_block.example]
 }
 ```
 
@@ -128,6 +169,7 @@ Define the following variables in `variables.tf` inside the `modules/aws-s3-stat
 
 - name: `tags`
 - description: `Tags to set on bucket.`
+- type: `map(string)`
 - default: `{}`
 
 
@@ -151,7 +193,7 @@ Add outputs to your module in the `outputs.tf` file inside the `modules/aws-s3-s
 
 - name: `domain`
 - description: `Domain name of the bucket`
-- value: `aws_s3_bucket.s3_bucket.website_domain`
+- value: `aws_s3_bucket_website_configuration.s3_bucket.website_domain`
 
 Like variables, outputs in modules perform the same function as they do in the root module but are accessed in a different way. A module's outputs can be accessed as read-only attributes on the module object, which is available within the configuration that calls the module. You can reference these outputs in expressions as `module.<MODULE NAME>.<OUTPUT NAME>`.
 
@@ -173,7 +215,7 @@ module "website_s3_bucket" {
 AWS S3 Buckets must be globally unique. Because of this, you will need to replace `<UNIQUE BUCKET NAME>` with a unique, valid name for an S3 bucket. Using your name and the date is usually a good way to guess a unique bucket name. For example:
 
 ```hcl
-  bucket_name = "robin-example-2020-01-15"
+  bucket_name = "jrs-example-2023-01-15"
 ```
 
 In this example, the `bucket_name` and `tags` arguments will be passed to the module, and provide values for the matching variables found in `modules/aws-s3-static-website-bucket/variables.tf`.
@@ -219,4 +261,4 @@ Use the `aws s3` command to copy an index.html file to your bucket, and load it 
 You have now configured and used your own module to create a static website. 
 
 ## Cleanup
-Now clean everything up by running `terraform destroy`
+Now clean everything up by running `terraform destroy -auto-approve`
