@@ -74,13 +74,9 @@ To test our Python script, we want to create a few instances and tag them as `En
 
 5. Click **Next: Tags**
 
-6. Click **Next: Review**
-
 7. Name the policy **Lambda_Policy_EC2_Instances**
 
-8. Click **Create policy**.
-
-9. 
+7. Click **Create policy**.
 
 ## Create a Custom AWS IAM Execution Role for Lambda
 
