@@ -228,7 +228,7 @@ Add the following to the `main.tf` file
 
 ## Install Ansible
 
-To manage the instances using Ansible, we must first install it in CloudShell. 
+To manage the instances using Ansible, we must first install it in Cloud9. 
 
 Run the following command to install Ansible using Pip.
 
