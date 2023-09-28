@@ -12,11 +12,12 @@ This lab requires a Cloud9 environment, as CloudShell lacks the required disk sp
 
 To create a Cloud9 environment: 
 
-1. Search for and open Cloud9 at the top of the AWS Console. 
-2. Create a new environment with the following settings: 
-3. Name: `tf-ansible`
-4. Instance type: `t3.small`
-5. Click "Create"
+1. Confirm you are in the `US-WEST-2` region.
+2. Search for and open Cloud9 at the top of the AWS Console. 
+3. Create a new environment with the following settings: 
+4. Name: `tf-ansible`
+5. Instance type: `t3.small`
+6. Click "Create"
 
 Open the Cloud9 IDE
 
