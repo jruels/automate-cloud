@@ -26,3 +26,8 @@ Lab 6: [Terraform - Create an EC2 instance](labs/tf-first-instance)
 Lab 7: [Terraform - Variables](labs/tf-variables-and-output)  
 Lab 8: [Terraform - Deploy web infrastructure](labs/tf-more-variables)  
 Lab 9: [Terraform Modules](labs/tf-write-module)  
+
+### Day 4
+
+Lab 10: [Terraform and Ansible](labs/ansible_vms)  
+Lab 11: [Integrate Ansible and Terraform](labs/tf_ansible_vms)  
