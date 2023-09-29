@@ -116,35 +116,11 @@ cat /home/ec2-user/lab-error-handling/transaction_list
 After confirming the playbook successfully downloads and updates the `transaction_list` file, download the lab repository, and run the `break_stuff.yml` playbook in the `maint` directory to simulate an unreachable host. 
 
 ```
-git clone 
-```
-
-Add the `ansible` user to the `sudoers` file. 
-
-Exit to the `ec2-user` account
-```
-exit
-```
-
-As `ec2-user` run `visudo`   
-
-```
-sudo visudo
-```
-
-Add the following: 
-```
-ansible    ALL=(ALL)       NOPASSWD: ALL
-```
-
-Change back to the `ansible` user. 
-
-```
-sudo su - ansible
+git clone https://github.com/jruels/automate-cloud ~/automate-cloud
 ```
 
 ```sh
-ansible-playbook ~/ansible-best-practices/labs/error-handling/maint/break_stuff.yml --tags service_down
+ansible-playbook ~/automate-cloud/labs/error-handling/maint/break_stuff.yml --tags service_down
 ```
 
 Confirm the host is no longer reachable 
