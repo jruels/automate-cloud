@@ -118,23 +118,27 @@ provisioner "remote-exec" {
 
   provisioner "local-exec" {
     command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ubuntu -i ${var.ansible_inventory} --private-key ${var.private_key_path} install-nginx.yaml"
-  }
 }
+
 ```
 
 
 
-Update `variables.tf` with a variable for your ansible inventory
+Update `variables.tf` with a variable for your ansible inventory, and ansible playbook
 
 ```json
 variable "ansible_inventory" {
 }
+
+variable "ansible_playbook" {
+}
 ```
 
-Update `terraform.tfvars` with the ansible inventory file
+Update `terraform.tfvars` with the above variables.
 
 ```
-ansible_playbook = "inventory"
+ansible_inventory = "tf-inventory"
+ansible_playbook = "install-nginx.yaml"
 ```
 
 Execute `terraform apply`
