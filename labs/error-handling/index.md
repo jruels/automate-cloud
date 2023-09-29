@@ -135,11 +135,11 @@ Run the playbook again and confirm it gracefully handles the failure.
 Restore the service using `break_stuff.yml`, and confirm the `report.yml` playbook reports the service is back online.
 
 ```
-ansible-playbook ~/ansible-best-practices/labs/error-handling/maint/break_stuff.yml --tags service_up
+ansible-playbook ~/automate-cloud/labs/error-handling/maint/break_stuff.yml --tags service_up
 ```
 
 ```
-ansible-playbook /home/ansible/lab-error-handling/report.yml
+ansible-playbook /home/ec2-user/lab-error-handling/report.yml
 ```
 
 
