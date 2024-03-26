@@ -10,7 +10,7 @@ Log into the [AWS Console](https://d-916729713a.awsapps.com/start/) in a browser
 
 Once you have logged in, select **AWS Account (1)** -> **Account AFT** -> **Management console**
 
-In the console, on the top right side, select the `us-west-2` region.
+In the console, on the top right side, select the `us-west-1` region.
 
 ## Create EC2 Key Pair
 
