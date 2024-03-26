@@ -15,7 +15,7 @@ Lab 1: [User Management](labs/user-scripts)
 Lab 2: [Guessing Game](labs/guessing_game)  
 
 ### Day 2
-Lab 3: [Deploy an EC2 instance with Lambda](labs/lambda_ec2)
-Lab 4: [Lambda Instance State](labs/lambda_start_stop)
-Lab 5: [Setup AWS environment](labs/aws_setup)
-Lab 6: [Terraform - Create an EC2 instance](labs/tf-first-instance)
+Lab 3: [Deploy an EC2 instance with Lambda](labs/lambda_ec2)   
+Lab 4: [Lambda Instance State](labs/lambda_start_stop)   
+Lab 5: [Setup AWS environment](labs/aws_setup)   
+Lab 6: [Terraform - Create an EC2 instance](labs/tf-first-instance)   
