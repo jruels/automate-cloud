@@ -19,3 +19,10 @@ Lab 3: [Deploy an EC2 instance with Lambda](labs/lambda_ec2)
 Lab 4: [Lambda Instance State](labs/lambda_start_stop)   
 Lab 5: [Setup AWS environment](labs/aws_setup)   
 Lab 6: [Terraform - Create an EC2 instance](labs/tf-first-instance)   
+
+
+### Day 3
+Lab 7: [Terraform - Variables](labs/tf-variables-and-output)   
+Lab 8: [Terraform Modules](labs/tf-write-module)   
+Lab 9: **OPTIONAL** [Terraform - Deploy web infrastructure](labs/tf-more-variables)   
+Lab 10: [Terraform and Ansible](labs/ansible_vms)   
