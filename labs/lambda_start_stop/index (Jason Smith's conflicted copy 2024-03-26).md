@@ -72,7 +72,7 @@ To test our Python script, we want to create a few instances and tag them as `En
 
    
 
-5. Click **Next**
+5. Click **Next: Tags**
 
 7. Name the policy **Lambda_Policy_EC2_Instances**
 
@@ -97,7 +97,7 @@ To test our Python script, we want to create a few instances and tag them as `En
 3. Choose **Author from scratch** and use the following settings:
 
    - *Name*: **StopEC2**
-   - *Runtime*: **Latest version of Python**
+   - *Runtime*: **Python 3.9*
 
 4. Expand *Change default execution role*.
 
@@ -115,7 +115,7 @@ To test our Python script, we want to create a few instances and tag them as `En
    import json
    import boto3
    
-   ec2 = boto3.resource('ec2')
+   ec2 = boto3.resource('ec2', region_name='us-west-1')
    def lambda_handler(event, context):
       instances = ec2.instances.filter(Filters=[{'Name': 'instance-state-name', 'Values': ['running']},{'Name': 'tag:Environment','Values':['Dev']}])
       for instance in instances:
