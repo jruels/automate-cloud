@@ -44,7 +44,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "lab1-tf-example" {
-  ami           = "ami-0f3769c8d8429942f"
+  ami           = "ami-0d5ae304a0b933620"
   instance_type = "t2.micro"
 
   tags = {
