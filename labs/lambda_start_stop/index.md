@@ -115,6 +115,7 @@ To test our Python script, we want to create a few instances and tag them as `En
    import json
    import boto3
    
+<<<<<<< HEAD
    ec2 = boto3.resource('ec2')
    def lambda_handler(event, context):
       instances = ec2.instances.filter(Filters=[{'Name': 'instance-state-name', 'Values': ['running']},{'Name': 'tag:Environment','Values':['Dev']}])

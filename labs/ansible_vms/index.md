@@ -12,7 +12,7 @@ This lab requires a Cloud9 environment, as CloudShell lacks the required disk sp
 
 To create a Cloud9 environment: 
 
-1. Confirm you are in the `US-WEST-2` region.
+1. Confirm you are in the `US-WEST-1` region.
 2. Search for and open Cloud9 at the top of the AWS Console. 
 3. Create a new environment with the following settings: 
 4. Name: `tf-ansible`
@@ -38,7 +38,7 @@ In the new working directory, create a `main.tf` that:
 
 * Creates an ec2 instance
 
-  * region = `us-west-2`
+  * region = `us-west-1`
 
   * Queries EC2 for the latest Ubuntu 20.04 AMI
 

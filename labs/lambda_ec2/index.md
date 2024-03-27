@@ -6,21 +6,21 @@ In this AWS hands-on lab, we will write a Lambda function that will create an EC
 
 ## Log into the AWS Console
 
-Log into the [AWS Console](https://d-916729713a.awsapps.com/start/) in a browser using the credentials from the spreadsheet.
+Log into the AWS Console in a browser using the information from the spreadsheet.
 
-Once you have logged in, select **AWS Account (1)** -> **Account AFT** -> **Management console**
+Once you have logged in, select **Snowflake{account_number}** ->  **AWSAdministratorAccess**
 
-In the console, on the top right side, select the `us-west-2` region.
+In the console, on the top right side, select the `us-west-1` region.
 
 ## Create EC2 Key Pair
 
 1. Navigate to EC2.
 
-2. In the navigation pane, under **NETWORK & SECURITY**, choose **Key Pairs**.
+2. In the navigation pane, under **Network & Security**, choose **Key Pairs**.
 
 3. Choose **Create Key Pair**.
 
-4. Enter a name for the new key pair (e.g., "LambdaEC2keypair") in the **Key pair name** field of the **Create Key Pair** dialog box, and then choose **Create**.
+4. Enter a name for the new key pair (e.g., "LambdaEC2keypair") in the **Key pair name** field of the **Create Key Pair** dialog box, and then choose **Create key pair**.
 
 5. **Note**: Make sure you remember the name of your key.
 
@@ -35,7 +35,7 @@ In the console, on the top right side, select the `us-west-2` region.
 3. Choose **Author from scratch** and use the following settings:
 
    - *Name*: **CreateEC2**
-   - *Runtime*: **Python 3.9*
+   - *Runtime*: **Latest version of Python**
 
 4. Expand *Change default execution role*.
 
@@ -87,7 +87,7 @@ In the console, on the top right side, select the `us-west-2` region.
     }
     ```
 
-16. Click **Review policy** and then **Save changes**.
+16. Click **Next** and then **Save changes**.
 
 17. Back in the Lambda console, refresh the page.
 
@@ -140,7 +140,11 @@ In the console, on the top right side, select the `us-west-2` region.
       - *Key*: **SUBNET_ID**
       - *Value*: Navigate to **VPC** > **Subnets**, and copy and paste the ID of one of the public subnets in your VPC.
 
-23. Deploy the Lambda function.
+23. Click **Save**
+
+24. Click **Code**
+
+25. Click **Deploy** to Deploy the Lambda function.
 
 
 
