@@ -26,3 +26,9 @@ Lab 7: [Terraform - Variables](labs/tf-variables-and-output)
 Lab 8: [Terraform Modules](labs/tf-write-module)   
 Lab 9: **OPTIONAL** [Terraform - Deploy web infrastructure](labs/tf-more-variables)   
 Lab 10: [Terraform and Ansible](labs/ansible_vms)   
+
+### Day 4
+Lab 11: [Ansible Error Handling](labs/error-handling)   
+Lab 12: [Ansible Vault](labs/ansible-vault)   
+Lab 13: [Create an Ansible module](labs/gh_module)   
+Lab 14: [Integrate Ansible and Terraform](labs/tf_ansible_vms)   
