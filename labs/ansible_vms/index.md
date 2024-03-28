@@ -34,6 +34,12 @@ cd $_
 
 
 
+## Install Terraform 
+
+Install Terraform in Cloud9 using the steps from the previous lab. 
+
+
+
 In the new working directory, create a `main.tf` that:
 
 * Creates an ec2 instance
