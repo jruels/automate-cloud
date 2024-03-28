@@ -1,15 +1,27 @@
 ## Running Ansible on Terraform VMs
 
-In order to let Ansible manage our newly created instances, we’ll have to create an inventory file that Ansible can use. In this inventory file, there’ll be an entry for each host. This entry will define the IP of the machine, the username we need to use to log in (this is ‘ubuntu’ on the Ubuntu images AWS provides), and the private key (we used the public key in the key pair, now we need to use the other file, without an extension). Because I don’t want to SSH into the instances every time before I can execute the Ansible playbook, I added an SSH argument that disables host key checking.
+This lab continues from where lab 10 left off. 
 
-First, we’ll create a `hosts.tpl` template file. This file will be used by Terraform to create the inventory file.
+
+
+In order to let Ansible manage our newly created instances, we’ll have to create an inventory file that Ansible can use. In this inventory file, there’ll be an entry for each host.
+
+Log into Cloud9, and enter the working directory
+
+```bash
+cd $HOME/environment/tf-ansible1
+```
+
+
+
+First, we’ll create a `hosts.tpl` template file. Terraform will use this file to create the inventory file.
 
 ```ini
 [web]
 ${instance_name}
 ```
 
-Once we have the template file, we can go back to our `main.tf` file and start using the [template_file](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) data source. In this data source, we’ll define a template (our `hosts.tpl` template file) and variables that will fill the inventory file. For this variable, I’m using a `join` which joins the public IP of the EC2 instances with the Ansible inventory arguments. Once the variables are set in the template, we can output the rendered template into a file that Ansible can use. For that, I’m using the [local_file](https://registry.terraform.io/providers/hashicorp/local/latest/docs/data-sources/file) resource in Terraform.
+Once we have the template file, we can return to our `main.tf` file and start using the [template_file](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) data source. In this data source, we’ll define a template (our `hosts.tpl` template file) and variables that will fill the inventory file. For this variable, I’m using a `join` which joins the public IP of the EC2 instances with the Ansible inventory arguments. Once the variables are set in the template, we can output the rendered template into a file that Ansible can use. For that, I’m using the [local_file](https://registry.terraform.io/providers/hashicorp/local/latest/docs/data-sources/file) resource in Terraform.
 
 ```tf
 data "template_file" "hosts" {
@@ -25,7 +37,7 @@ resource "local_file" "hosts_file" {
 }
 ```
 
-Execute Terraform to create the inventory file. 
+**Execute Terraform to create the inventory file**. 
 
 ## Creating an Ansible playbook
 
@@ -143,7 +155,7 @@ ansible_playbook = "install-nginx.yaml"
 
 Execute `terraform apply`
 
-You may see an error stating `skipping: no hosts matched`.
+You may see an error stating `skipping: no hosts matched` or `No changes. Your infrastructure matches the configuration.`
 
 There is still one thing we have to resolve. The dependency between the `data` resource and our `aws_instance` resource. 
 
@@ -158,5 +170,10 @@ resource "null_resource" "ansible-inventory" {
 }
 ```
 
-Run `terraform destroy` and then `terraform apply` to confirm it works as expected.
+Run `terraform apply` to confirm it works as expected.
 
+
+
+# Cleanup 
+
+Execute `terraform destroy -auto-approve` to destroy the resources. 
